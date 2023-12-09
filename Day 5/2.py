@@ -1,8 +1,7 @@
-with open("input") as fp:
+with open("Day 5/input") as fp:
     s = fp.read()
 
 inputs, *blocks = s.split("\n\n")
-
 inputs = list(map(int, inputs.split(":")[1].split()))
 
 seeds = []
@@ -23,13 +22,12 @@ for block in blocks:
             if os < oe:
                 new.append((os - b + a, oe - b + a))
                 if os > s:
-                    new.append((s, os))
+                    seeds.append((s, os))
                 if e > oe:
-                    new.append((oe, e))
+                    seeds.append((oe, e))
                 break
         else:
             new.append((s, e))
-
     seeds = new
 
 print(min(seeds)[0])
